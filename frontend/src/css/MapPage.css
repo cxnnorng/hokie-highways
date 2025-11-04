@@ -1,0 +1,53 @@
+.map-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  
+
+  .search-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0;
+
+    .search-bar {
+      background-color: #ece6f0;
+      padding: 1rem 1rem;
+      width: 85%;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 1.5rem;
+
+      input {
+        outline: none;
+        border: none;
+        width: 20rem;
+        height: 1rem;
+        font-size: 1.2rem;
+        background-color: transparent;
+      }
+
+      .icon {
+        font-size: 1rem;
+        color: gray;
+      }
+    }
+  }
+
+  .map-container {
+    flex: 1;
+    background-color: lightgrey;
+
+    .leaflet-container {
+        height: 100%;
+        width: 100%;
+    }
+  }
+
+  .end-block {
+    height: 2rem;
+    background-color: white;
+    width: 100%;
+  }
+}

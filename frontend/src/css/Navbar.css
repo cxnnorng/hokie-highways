@@ -1,0 +1,41 @@
+.navbar {
+  height: 100%;
+
+  .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+
+    .divider {
+        width: 1px;
+        background-color: #e9ba9f;
+        height: 75%;
+    }
+
+    .nav-option {
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .icon {
+        color: #F6C6C6;
+        font-size: 2rem;
+      }
+
+      span {
+        color: #F6C6C6;
+      }
+
+      &:first-child {
+        margin-left: 1rem;
+      }
+
+      &:last-child {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
