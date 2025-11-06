@@ -12,7 +12,9 @@ import React, { useEffect, useState } from "react";
  *
  */
 
-/**
+const SettingsPage = () => {
+
+  /**
  * State variable for bus update frequency (default 5000 ms = 5 seconds)
  */
 const [updateFrequency, setUpdateFrequency] = useState(5000); // in milliseconds
@@ -53,7 +55,6 @@ const toggleNotifications = () => {
   setNotifications(!notifications);
 }
 
-const SettingsPage = () => {
   return (
     <div className="">
       <h1>Settings</h1>
