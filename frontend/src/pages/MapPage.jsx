@@ -48,7 +48,7 @@ const MapPage = () => {
 
   useEffect(() => {
     fetchBusData();
-
+    // Would be updateFrequency from settings page instead of 5000
     const interval = setInterval(fetchBusData, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -89,7 +89,7 @@ const MapPage = () => {
       colorMap[routeName] = colorList[nextColorIndex];
       return colorList[nextColorIndex++];
     }
-  }
+  };
 
   const createBusIcon = (routeName, color) => {
     return L.divIcon({
@@ -105,7 +105,7 @@ const MapPage = () => {
           <span
             style={{
               color: color,
-              fontWeight: "bold"
+              fontWeight: "bold",
             }}
           >
             {routeName}
