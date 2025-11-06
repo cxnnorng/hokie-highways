@@ -26,10 +26,22 @@ const serviceCalendarLink = "https://ridebt.org/service-calendar/";
  * Link for contact us
  */
 const contactLink = "mailto:ajhand@vt.edu";
+
+/**
+ * Cost of riding the bus
+ */
+const farePrice = 0;
+
+const busRoutes = "ridebt.org/routes-schedules";
 /**
  * State variable for dark/light mode toggle (light = true, dark = false)
  */
 const [lightMode, setLightMode] = useState(true);
+
+/**
+ * State variable for notification settings (yes = true, no = false)
+ */
+const [notifications, setNotifications] = useState(true);
 
 /**
  * Function to change the light/dark mode toggle
@@ -37,6 +49,9 @@ const [lightMode, setLightMode] = useState(true);
 const toggleLightMode = () => {
   setLightMode(!lightMode);
 };
+const toggleNotifications = () => {
+  setNotifications(!notifications);
+}
 
 const SettingsPage = () => {
   return (
@@ -64,6 +79,24 @@ const SettingsPage = () => {
         <label>
           Contact Us:
           <a href={contactLink}></a>
+        </label>
+        <label>
+          Fare Price: {farePrice}
+        </label>
+         <label>
+          Bus Routes
+          <a href={busRoutes}></a>
+        </label>
+        <label>
+          Account Settings
+        </label>
+        <label>
+          Notification Settings
+          <input
+            type="checkbox"
+            checked={notifications}
+            onChange={toggleNotifications}
+          />
         </label>
         <label>
           <input
