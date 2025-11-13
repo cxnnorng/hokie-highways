@@ -9,25 +9,25 @@ import ReactDOMServer from "react-dom/server";
 const MapPage = () => {
   const [busData, setBusData] = useState([]);
   const colorList = [
-    "#FF6B6B",
-    "#FF8E72",
-    "#FFA600",
-    "#FFC300",
-    "#F2E94E",
-    "#A1E44D",
-    "#4CAF50",
-    "#2ECC71",
-    "#2AB7CA",
-    "#3FA9F5",
-    "#0074D9",
-    "#004E98",
-    "#4B7BEC",
-    "#7E57C2",
-    "#B388FF",
-    "#D6336C",
-    "#C71585",
-    "#FF1493",
-    "#FF5F7E",
+    "#0074D9", //SMA
+    "#000000", //CAS
+    "#FF5F7E", //BMR
+    "#004E98", //HWA
+    "#4CAF50", //UCB
+    "#FC7999", //PHD
+    "#CA0000", //CRB
+    "#F56200", //TCR
+    "#660E03", //TTT
+    "#11A79A", //HXP
+    "#000DC7", //BLU
+    "#7E57C2", //PRG
+    "#1592FF", //SMS
+    "#0B7734", //PHB
+    "#0074D9", //HWB
+    "#794c13ff", //HDG
+    "#D60E00", //NMG
+    "#075023", //CRC
+    "#FF5F7E", //placeholder
     "#FFB3C6",
     "#FF9F1C",
     "#FFBE0B",
