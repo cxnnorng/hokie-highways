@@ -1,0 +1,2 @@
+# Gus Alston
+- I implented the second part of the settings page, including the account settings button, the fare button, the contact us button, and the notifications switch. Andrew and I collectively designed the code for the settings page, and the features I listed were just what I coded when I was the one on the keyboard. Overall, this work was front-end in nature, and provided some UI features that would be desirable to the client.
