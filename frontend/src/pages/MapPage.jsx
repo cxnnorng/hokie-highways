@@ -32,20 +32,20 @@ const RouteColors = {
 }
 const MapPage = () => {
   const [busData, setBusData] = useState([]);
-  //const [selectedBus, setSelectedBus] = useState(null);
+  const [selectedBus, setSelectedBus] = useState(null);
+  const [routeInfo, setRouteInfo] = useState([]);
+  const [routeLoading, setRouteLoading] = useState(false);
+  const [routeError, setRouteError] = useState(null);
 
   useEffect(() => {
     fetchBusData();
-    // Would be updateFrequency from settings page instead of 5000
     const interval = setInterval(fetchBusData, 5000);
     return () => clearInterval(interval);
   }, []);
 
   const fetchBusData = async () => {
     try {
-      const response = await axios.get(
-        "bt/webservices/bt4u_webservice.asmx/GetCurrentBusInfo"
-      );
+      const response = await axios.get("bt/webservices/bt4u_webservice.asmx/GetCurrentBusInfo");
       const result = xml2json(response.data, {
         compact: true,
         spaces: 2,
@@ -103,6 +103,31 @@ const MapPage = () => {
     });
   };
 
+  const fetchRouteInfoForBus = async (bus) => {
+  setRouteLoading(true);
+  setRouteError(null);
+  setRouteInfo([]);
+
+  try {
+    const res = await axios.get('http://localhost:3000/api/route-info', {
+      params: {
+        routeShortName: bus.routeName,
+      },
+    });
+
+    setRouteInfo(res.data);
+  } catch (err) {
+    console.error('Error fetching route info:', err);
+    setRouteError('Could not load route info.');
+  } finally {
+    setRouteLoading(false);
+  }
+};
+const formatTime = (isoString) => {
+  if (!isoString) return "N/A";
+  const d = new Date(isoString);
+  return d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+};
   return (
     <div className="map-page">
       <div className="search-container">
@@ -127,15 +152,74 @@ const MapPage = () => {
               key={bus.busId}
               position={[bus.latitude, bus.longitude]}
               icon={createBusIcon(bus.routeName, bus.color)}
-              // eventHandlers={{
-              //   click: () => {
-              //     setSelectedBus(bus); 
-              //   },
-              // }}
+              eventHandlers={{
+                click: () => {
+                  setSelectedBus(bus);
+                  fetchRouteInfoForBus(bus); 
+                },
+              }}
             ></Marker>
           ))}
         </MapContainer>
       </div>
+      <div className={`bus-slider ${selectedBus ? "open" : ""}`}>
+  {selectedBus && (
+    <>
+      <div className="bus-slider-header">
+        <div
+          className="bus-route-pill"
+          style={{ backgroundColor: selectedBus.color }}
+        >
+          {selectedBus.routeName}
+        </div>
+        <div className="bus-header-text">
+          <div className="bus-title">
+            Route {selectedBus.routeName} – #{selectedBus.busId}
+          </div>
+          <div className="bus-subtitle">
+            Live arrivals & departures
+          </div>
+        </div>
+        <button
+          className="bus-close-btn"
+          onClick={() => setSelectedBus(null)}
+        >
+          ✕
+        </button>
+      </div>
+
+      <div className="bus-slider-body">
+        {routeLoading && <div>Loading route info...</div>}
+
+        {routeError && !routeLoading && (
+          <div className="error-text">{routeError}</div>
+        )}
+
+        {!routeLoading && !routeError && routeInfo.length === 0 && (
+          <div>No upcoming stops found.</div>
+        )}
+
+        {!routeLoading &&
+          !routeError &&
+          routeInfo.map((stop, idx) => (
+            <div key={idx} className="stop-card">
+              <div className="stop-card-top">
+                <span className="stop-name">{stop.stopName}</span>
+                <span className="stop-code">#{stop.stopCode}</span>
+              </div>
+              <div className="stop-card-bottom">
+                <span className="stop-label">Estimated </span>
+                <span className="stop-time">
+                  {formatTime(stop.arrivalTime)}
+                </span>
+              </div>
+            </div>
+          ))}
+      </div>
+
+    </>
+  )}
+</div>
       <div className="end-block"></div>
     </div>
   );

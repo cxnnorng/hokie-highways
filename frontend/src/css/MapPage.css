@@ -50,4 +50,114 @@
     background-color: white;
     width: 100%;
   }
+
+  .bus-slider {
+    position: fixed;           
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 45vh;               
+    background: #BC5341;        
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.35);
+
+    transform: translateY(100%);
+    transition: transform 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    color: #000000;
+    z-index: 1000;               
+    }
+
+    .bus-slider.open {
+      transform: translateY(0);
+    }
+    .bus-slider-header {
+      padding: 10px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+  .bus-route-pill {
+    min-width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #000000;
+  }
+
+  .bus-header-text .bus-title {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .bus-header-text .bus-subtitle {
+    font-size: 12px;
+    opacity: 0.85;
+  }
+
+  .bus-close-btn {
+    margin-left: auto;
+    border: none;
+    background: transparent;
+    color: #000000;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .bus-slider-body {
+    padding: 8px 16px 16px;
+    overflow-y: auto;
+    flex: 1 1 auto;
+  }
+  .stop-card {
+    background: #c09992;
+    border-radius: 10px;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stop-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .stop-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+  }
+
+  .stop-code {
+    font-size: 12px;
+    font-weight: 600;
+    color: #3d0c0c;
+  }
+
+  .stop-card-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #252525;
+  }
+
+  .stop-label {
+    opacity: 0.85;
+  }
+
+  .stop-time {
+    font-weight: 600;
+  }
+    
 }
