@@ -12,3 +12,6 @@ I then mapped each bus route to a different color and placed markers on the map 
 
 **Andrew Hand**
 I implemented the first part of the settings page. I pair programmed with Gus, where I created the needed react fundamentals like constants, states, and the exported structure. I also added the routes to the app.jsx so that each page would be routed to their respective page components. We didn't use AI, so our functionality is very rudimentary, and mostly to get the design of the UI down.
+
+**Emily Tran**
+On the backend, I set up endpoints for the buses and route-info to requrest live bus and route data, thus I was able to implement the live bus route updates using BT public API, showing each stop's name, stop code, and estimated arrival time. On the frontend, I tried my best to match the style to the figma wireframe by adding the slider panel when a user clicks a bus to show its route. I also updated the map page with correct color mapping that the real BT transit uses for their route colors.
