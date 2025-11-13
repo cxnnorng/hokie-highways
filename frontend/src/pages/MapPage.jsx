@@ -24,7 +24,7 @@ const MapPage = () => {
     "#1592FF", //SMS
     "#0B7734", //PHB
     "#0074D9", //HWB
-    "#D6336C",
+    "#794c13ff", //HDG
     "#D60E00", //NMG
     "#075023", //CRC
     "#FF5F7E",
