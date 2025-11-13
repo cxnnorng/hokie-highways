@@ -6,45 +6,33 @@ import axios from "axios";
 import { xml2json } from "xml-js";
 import ReactDOMServer from "react-dom/server";
 
+const RouteColors = {
+  SMA: "#0074D9", 
+  CAS:  "#000000", 
+  BMR:  "#FF5F7E", 
+  HWA:  "#004E98", 
+  UCB:  "#4CAF50", 
+  PHD:  "#FC7999", 
+  CRB:  "#CA0000",
+  TCR:  "#F56200", 
+  TTT:  "#660E03", 
+  HXP:  "#11A79A", 
+  BLU:  "#000DC7", 
+  PRG:  "#7E57C2", 
+  SMS:  "#1592FF", 
+  PHB:  "#0B7734",
+  HWB:  "#0074D9", 
+  HDG:  "#794C13", 
+  NMG:  "#D60E00", 
+  CRC:  "#075023", 
+  GRN:  "#FF5F7E",
+  HWC:  "#624F85",
+  NMP:  "#C92B00",
+  SME:  "#007ADD",
+}
 const MapPage = () => {
   const [busData, setBusData] = useState([]);
-  const colorList = [
-    "#0074D9", //SMA
-    "#000000", //CAS
-    "#FF5F7E", //BMR
-    "#004E98", //HWA
-    "#4CAF50", //UCB
-    "#FC7999", //PHD
-    "#CA0000", //CRB
-    "#F56200", //TCR
-    "#660E03", //TTT
-    "#11A79A", //HXP
-    "#000DC7", //BLU
-    "#7E57C2", //PRG
-    "#1592FF", //SMS
-    "#0B7734", //PHB
-    "#0074D9", //HWB
-    "#794c13ff", //HDG
-    "#D60E00", //NMG
-    "#075023", //CRC
-    "#FF5F7E", //placeholder
-    "#FFB3C6",
-    "#FF9F1C",
-    "#FFBE0B",
-    "#E07A5F",
-    "#9A031E",
-    "#EF476F",
-    "#118AB2",
-    "#06D6A0",
-    "#8D99AE",
-    "#2B2D42",
-    "#6C757D",
-    "#343A40",
-    "#000000",
-  ];
-
-  const colorMap = {};
-  let nextColorIndex = 0;
+  //const [selectedBus, setSelectedBus] = useState(null);
 
   useEffect(() => {
     fetchBusData();
@@ -83,11 +71,10 @@ const MapPage = () => {
   };
 
   const getRouteColor = (routeName) => {
-    if (colorMap[routeName]) {
-      return colorMap[routeName];
+    if (RouteColors[routeName]) {
+      return RouteColors[routeName];
     } else {
-      colorMap[routeName] = colorList[nextColorIndex];
-      return colorList[nextColorIndex++];
+      return "#808080";
     }
   };
 
@@ -140,6 +127,11 @@ const MapPage = () => {
               key={bus.busId}
               position={[bus.latitude, bus.longitude]}
               icon={createBusIcon(bus.routeName, bus.color)}
+              // eventHandlers={{
+              //   click: () => {
+              //     setSelectedBus(bus); 
+              //   },
+              // }}
             ></Marker>
           ))}
         </MapContainer>
