@@ -15,3 +15,7 @@ I implemented the first part of the settings page. I pair programmed with Gus, w
 
 **Emily Tran**
 On the backend, I set up endpoints for the buses and route-info to requrest live bus and route data, thus I was able to implement the live bus route updates using BT public API, showing each stop's name, stop code, and estimated arrival time. On the frontend, I tried my best to match the style to the figma wireframe by adding the slider panel when a user clicks a bus to show its route. I also updated the map page with correct color mapping that the real BT transit uses for their route colors.
+
+
+**Zachary Brosius:**
+I implemented the plan a trip page in the frontend folder. I focused on creating the intial UI layout including controlled inputs for entering the origin and destination, departure and arrival times, setting maximum walking distance, and the most amount of transfers before reaching the destination. I also set up the date-time formatting helper, preference handling (max walk and max transfers), and the swap logic used to reverse the origin and destination fields. None of these are functional yet.
