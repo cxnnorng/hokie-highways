@@ -6,8 +6,8 @@
 import React, { useEffect, useState } from "react";
 
 /**
- * The code below was largely sourced from the quick start
- * react dev site, the page can be found at the following website:  
+ * The code in this file was largely sourced from the quick start
+ * react dev site, the page can be found at the following link:  
  * https://react.dev/learn. 
  * 
  * This webpage helped me learn how to use <li> and how to use
