@@ -7,17 +7,26 @@ import React, { useEffect, useState } from "react";
 
 /**
  * The code below was largely sourced from the quick start
- * react dev site, the page can be found at:  
+ * react dev site, the page can be found at the following website:  
  * https://react.dev/learn. 
+ * 
+ * This webpage helped me learn how to use <li> and how to use
+ * React in general.
+ * 
+ * Full citation: "Quick Start." React. Accessed: November 14, 2025.
+ * [Online]. Available: https://react.dev/learn.
  */
 
+// This is the structure for the user's favorite busses
+// There would be a setter method to update it.
 const favoriteBusses = [
   "SMA",
   "SME",
   "SMS"
-
 ]
 
+// This is the structure for the user's favorite routes
+// There would be a setter method to update it. 
 const favoriteRoutes = [
   "Maroon Bay 9 - #8009", 
   "McBryde Hall - #1142", 
@@ -26,16 +35,32 @@ const favoriteRoutes = [
 
 // This function would get the status of each bus, this is just
 // a sample output string
-
+// @param bus is the bus to get the status for
 function getStatus(bus) {
   return "On Schedule";
 }
 
 // This function would get the status of the route, this is just
 // a sample output string
-
+// @param route is the route to get the status for
 function getRouteStatus(route) {
   return "On Schedule";
+}
+
+// This would let the user update their favorite busses
+// @param newBus is the new bus to be added
+// @param priority indicates where in the favorite busses list
+// the user would like it to appear
+function updateFavoriteBus(newBus, priority) {
+  favoriteBusses[priority] = newBus;
+}
+
+// This would let the user update their favorite route
+// @param newRoute is the new route to be added
+// @param priority indicates where in the favorite routes
+// list the user would like it to appear
+function updateFavoriteRoute(newRoute, priority) {
+  favoriteRoutes[priority] = newRoute;
 }
 
 // This is the Favorite Routes Page
