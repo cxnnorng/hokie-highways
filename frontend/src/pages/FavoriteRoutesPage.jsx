@@ -24,19 +24,21 @@ const favoriteRoutes = [
   "Patrick Henry WestBound - #1516"
 ]
 
-// This function gets the status of each bus, this is just
-// a sample output
+// This function would get the status of each bus, this is just
+// a sample output string
 
 function getStatus(bus) {
   return "On Schedule";
 }
 
-// This function gets the status of the route, this is just
-// a sample output
+// This function would get the status of the route, this is just
+// a sample output string
 
 function getRouteStatus(route) {
   return "On Schedule";
 }
+
+// This is the Favorite Routes Page
 const FavoriteRoutesPage = () => {
 return (
     <div className="favorite">
