@@ -21,4 +21,4 @@ On the backend, I set up endpoints for the buses and route-info to requrest live
 I implemented the plan a trip page in the frontend folder. I focused on creating the intial UI layout including controlled inputs for entering the origin and destination, departure and arrival times, setting maximum walking distance, and the most amount of transfers before reaching the destination. I also set up the date-time formatting helper, preference handling (max walk and max transfers), and the swap logic used to reverse the origin and destination fields. None of these are functional yet.
 
 **Colleen Piccolo:**
-Added basic structure to the FavoriteRoutesPage class. Derived most of the structure from the following React tutorial page: https://react.dev/learn. Added two arrays to hold information about the favorite routes and the favorite busses. 
+Added basic structure to the FavoriteRoutesPage class. Derived most of the structure from the following React tutorial page: https://react.dev/learn. Added two arrays to hold information about the favorite routes and the favorite busses. There are getter and setter methods for the favorites page, but they are not functional. 
